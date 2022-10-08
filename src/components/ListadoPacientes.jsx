@@ -2,8 +2,8 @@
 
 function ListadoPacientes() {
   return (
-    <div>
-      <h2 className="text-4xl font-bold">Listado Pacientes</h2>
+    <div className="md:w-1/2">
+      <h2 className="text-center font-black text-3xl" >Listado Pacientes</h2>
     </div>
   )
 }
