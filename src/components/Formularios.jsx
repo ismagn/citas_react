@@ -3,11 +3,11 @@ import Error from "./error";
 
 
 function Formularios({pacientes,setPacientes,paciente,setPaciente}) {
-  const [nombre,setNombre]=useState("");
-  const [propietario,setPropietario]=useState("");
-  const [email,setEmail]=useState("");
+  const [nombre,setNombre]=useState(" ");
+  const [propietario,setPropietario]=useState(" ");
+  const [email,setEmail]=useState(" ");
   const [alta,setAlta]=useState("");
-  const [sintomas,setSintomas]=useState("");
+  const [sintomas,setSintomas]=useState(" ");
   const [error,setError]=useState(false);
 
   useEffect(()=>{
@@ -26,7 +26,7 @@ function Formularios({pacientes,setPacientes,paciente,setPaciente}) {
   const Submit=(e)=>{
     e.preventDefault();
 
-    if ([nombre,propietario,email,alta,sintomas].includes("")) {
+    if ([nombre,propietario,email,alta,sintomas].includes(" ")) {
       setError(true)
     } else{
       setError(false);
