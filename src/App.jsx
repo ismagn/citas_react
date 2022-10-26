@@ -1,16 +1,40 @@
+import { useState } from "react"
 import Formularios from "./components/Formularios"
 import Headers from "./components/Headers"
 import ListadoPacientes from "./components/ListadoPacientes"
 
 function App() {
+
+  const[pacientes,setPacientes]=useState([]);
+  const[paciente,setPaciente]=useState({});
+  
+  const eliminarPaciente = (id)=>{
+    const pacientesActualizados = pacientes.filter(i => i.id !== id);
+    setPacientes(pacientesActualizados) 
+  }
+
   return (
+    <>
     <div className="container mx-auto  mt-24 ">
       <Headers/>
       <div className="mt-12 md:flex ">
-      <Formularios/>
-      <ListadoPacientes/>
+      <Formularios
+      //se mandan estos prop a formularios para almacenar los datos de los pacientes
+      pacientes={pacientes}
+      setPacientes={setPacientes}
+      paciente={paciente}
+      setPaciente={setPaciente}
+      />
+      <ListadoPacientes
+      //se manda este prop para mostrar los datos de los pacientes
+      pacientes={pacientes}
+
+      setPaciente={setPaciente}
+      eliminarPaciente={eliminarPaciente}
+      />
       </div>
     </div>
+    </>
   )
 }
 
